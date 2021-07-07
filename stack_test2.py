@@ -17,11 +17,12 @@ PARAMS = {
     }
 
 complete_data=[]
-for i in range(45):
+for i in range(30):
     response = requests.get("https://api.stackexchange.com/2.3/questions?page=" + str(i + 1), params=PARAMS)
     newData = json.loads(response.text)
     for item in newData['items']:
         complete_data.append(item['title'])
     print("Processed page " + str(i + 1) + ", returned " + str(response))
-    time.sleep(2)
+    time.sleep(5)
+pprint(complete_data)
 

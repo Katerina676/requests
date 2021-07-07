@@ -5,7 +5,7 @@ now = int(datetime.timestamp(datetime.now()))
 start = now - 2 * 86400
 
 SITE = StackAPI("stackoverflow")
-SITE.max_pages=2
+SITE.max_pages=30
 SITE.page_size=100
 questions = SITE.fetch('questions', sort='creation', fromdate=start, todate=now, tagged='python')
 for question in questions['items']:
